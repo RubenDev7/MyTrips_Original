@@ -3,8 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Perfiles/at1DAM2/DAM2RUBEN/MyTrips/app/src/main/res/layout/activity_main.xml" value="0.22" />
+        <entry key="..\:/Perfiles/at1DAM2/DAM2RUBEN/MyTrips/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/Perfiles/at1DAM2/DAM2RUBEN/MyTrips/app/src/main/res/layout/fragment_mis_viajes.xml" value="0.33796296296296297" />
+        <entry key="..\:/Perfiles/at1DAM2/DAM2RUBEN/MyTrips/app/src/main/res/layout/fragment_nuevo_viaje.xml" value="0.36666666666666664" />
+        <entry key="..\:/Perfiles/at1DAM2/DAM2RUBEN/MyTrips/app/src/main/res/layout/fragment_recomendaciones.xml" value="0.36666666666666664" />
+        <entry key="..\:/Perfiles/at1DAM2/DAM2RUBEN/MyTrips/app/src/main/res/menu/toolbar_menu.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/valin/Desktop/MyTrips/app/src/main/res/layout/activity_main.xml" value="0.1" />
       </map>
     </option>
