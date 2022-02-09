@@ -56,7 +56,6 @@ public class MainActivity extends AppCompatActivity {
 
         if (id == R.id.perfil) {
             Toast.makeText(getApplicationContext(),"PRUEBA PERFIL TOOLBAR", Toast.LENGTH_LONG).show();
-
         }
         if (id == R.id.ajustes) {
             Toast.makeText(getApplicationContext(),"PRUEBA AJUSTES TOOLBAR", Toast.LENGTH_LONG).show();

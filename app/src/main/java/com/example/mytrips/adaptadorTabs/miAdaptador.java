@@ -6,9 +6,10 @@ import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.Lifecycle;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
+
+import com.example.mytrips.fragments.descubrir;
 import com.example.mytrips.fragments.misViajes;
 import com.example.mytrips.fragments.nuevoViaje;
-import com.example.mytrips.fragments.recomendaciones;
 
 public class miAdaptador extends FragmentStateAdapter {
 
@@ -34,8 +35,8 @@ public class miAdaptador extends FragmentStateAdapter {
                misViajes misViajes1 = new misViajes();
                return misViajes1;
            case 2 :
-               recomendaciones recomendaciones1 = new recomendaciones();
-               return recomendaciones1;
+               descubrir descubrir1 = new descubrir();
+               return descubrir1;
            default : return null;
        }
     }

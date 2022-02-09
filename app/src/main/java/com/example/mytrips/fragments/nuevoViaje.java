@@ -60,7 +60,8 @@ public class nuevoViaje extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        View vista = inflater.inflate(R.layout.fragment_nuevo_viaje, container, false);
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_nuevo_viaje, container, false);
+        return vista;
     }
 }

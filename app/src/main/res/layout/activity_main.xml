@@ -37,10 +37,10 @@
                 android:text="MIS VIAJES" />
 
             <com.google.android.material.tabs.TabItem
-                android:id="@+id/tabRecomendaciones"
+                android:id="@+id/tabDescubrir"
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
-                android:text="RECOMENDADO" />
+                android:text="DESCUBRIR" />
         </com.google.android.material.tabs.TabLayout>
     </com.google.android.material.appbar.AppBarLayout>
 

@@ -12,10 +12,10 @@ import com.example.mytrips.R;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link recomendaciones#newInstance} factory method to
+ * Use the {@link descubrir#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class recomendaciones extends Fragment {
+public class descubrir extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -26,7 +26,7 @@ public class recomendaciones extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public recomendaciones() {
+    public descubrir() {
         // Required empty public constructor
     }
 
@@ -36,11 +36,11 @@ public class recomendaciones extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment recomendaciones.
+     * @return A new instance of fragment descubrir.
      */
     // TODO: Rename and change types and number of parameters
-    public static recomendaciones newInstance(String param1, String param2) {
-        recomendaciones fragment = new recomendaciones();
+    public static descubrir newInstance(String param1, String param2) {
+        descubrir fragment = new descubrir();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -60,7 +60,8 @@ public class recomendaciones extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        View vista = inflater.inflate(R.layout.fragment_descubrir, container, false);
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_recomendaciones, container, false);
+        return vista;
     }
 }
