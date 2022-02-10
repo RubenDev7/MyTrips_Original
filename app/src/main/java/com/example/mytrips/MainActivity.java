@@ -46,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
     setSupportActionBar(myTB);
     myTL = findViewById(R.id.myTabs);
     myVP2 = findViewById(R.id.myViewPager2);
+    myTB.setOverflowIcon(getDrawable(R.drawable.ic_baseline_more_vert_24));
     }
 
     @Override
@@ -61,7 +62,6 @@ public class MainActivity extends AppCompatActivity {
         if (id == R.id.perfil) {
             Intent i = new Intent(this, perfil.class);
             startActivity(i);
-
         }
         if (id == R.id.ajustes) {
             Intent i = new Intent(this, ajustes.class);

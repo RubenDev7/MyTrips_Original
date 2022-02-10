@@ -10,6 +10,7 @@ public class splash extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        setTheme(R.style.Theme_Splash);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
         Handler h = new Handler();
