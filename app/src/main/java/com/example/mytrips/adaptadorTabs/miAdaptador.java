@@ -29,14 +29,9 @@ public class miAdaptador extends FragmentStateAdapter {
     @Override
     public Fragment createFragment(int position) {
        switch (position) {
-           case 0 : nuevoViaje nuevoviaje1 = new nuevoViaje();
-           return nuevoviaje1;
-           case 1 :
-               misViajes misViajes1 = new misViajes();
-               return misViajes1;
-           case 2 :
-               descubrir descubrir1 = new descubrir();
-               return descubrir1;
+           case 0 : return new nuevoViaje();
+           case 1 : return new misViajes();
+           case 2 : return new descubrir();
            default : return null;
        }
     }
