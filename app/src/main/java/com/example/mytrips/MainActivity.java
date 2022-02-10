@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
     public Toolbar myTB;
     public TabLayout myTL;
     public ViewPager2 myVP2;
-
+    public miAdaptador adapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,22 +32,23 @@ public class MainActivity extends AppCompatActivity {
 
     private void main() {
         controls();
-        initApp();
+        initTabs();
+    }
+    private void controls() {
+        myTB = findViewById(R.id.myToolbar);
+        setSupportActionBar(myTB);
+        myTL = findViewById(R.id.myTabs);
+        myVP2 = findViewById(R.id.myViewPager2);
+        //Con esto se cambia el icono predeterminado de la ToolBar
+        myTB.setOverflowIcon(getDrawable(R.drawable.ic_baseline_more_vert_24));
     }
 
-    private void initApp() {
-        miAdaptador adapter = new miAdaptador(this);
+    private void initTabs() {
+        adapter = new miAdaptador(this);
         myVP2.setAdapter(adapter);
         new TabLayoutMediator(myTL,myVP2,(tab,position)->tab.setText(adapter.getTabTitle(position))).attach();
     }
 
-    private void controls() {
-    myTB = findViewById(R.id.myToolbar);
-    setSupportActionBar(myTB);
-    myTL = findViewById(R.id.myTabs);
-    myVP2 = findViewById(R.id.myViewPager2);
-    myTB.setOverflowIcon(getDrawable(R.drawable.ic_baseline_more_vert_24));
-    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
