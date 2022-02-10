@@ -12,6 +12,7 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 
+import com.example.mytrips.activitiesToolBar.ajustes;
 import com.example.mytrips.activitiesToolBar.perfil;
 import com.example.mytrips.adaptadorTabs.miAdaptador;
 import com.google.android.material.tabs.TabLayout;
@@ -63,8 +64,8 @@ public class MainActivity extends AppCompatActivity {
 
         }
         if (id == R.id.ajustes) {
-            Toast.makeText(getApplicationContext(),"PRUEBA AJUSTES TOOLBAR", Toast.LENGTH_LONG).show();
-        }
+            Intent i = new Intent(this, ajustes.class);
+            startActivity(i);        }
         if (id == R.id.cerrarSesion) {
             Toast.makeText(getApplicationContext(),"PRUEBA CIERRE SESION TOOLBAR", Toast.LENGTH_LONG).show();
         }
