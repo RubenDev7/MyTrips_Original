@@ -4,12 +4,15 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.viewpager2.widget.ViewPager2;
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
 
+import com.example.mytrips.activitiesToolBar.perfil;
 import com.example.mytrips.adaptadorTabs.miAdaptador;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
@@ -55,7 +58,9 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         if (id == R.id.perfil) {
-            Toast.makeText(getApplicationContext(),"PRUEBA PERFIL TOOLBAR", Toast.LENGTH_LONG).show();
+            Intent i = new Intent(this, perfil.class);
+            startActivity(i);
+
         }
         if (id == R.id.ajustes) {
             Toast.makeText(getApplicationContext(),"PRUEBA AJUSTES TOOLBAR", Toast.LENGTH_LONG).show();

@@ -45,7 +45,7 @@ public class miAdaptador extends FragmentStateAdapter {
         switch (position) {
             case 0 : return "NUEVO VIAJE";
             case 1: return "MIS VIAJES";
-            case 2: return "RECOMENDACIONES";
+            case 2: return "DESCUBRIR";
             default : return "MyTrips";
         }
     }

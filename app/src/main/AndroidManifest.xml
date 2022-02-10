@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyTrips">
         <activity
+            android:name=".activitiesToolBar.ajustes"
+            android:exported="false" />
+        <activity
+            android:name=".activitiesToolBar.perfil"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
