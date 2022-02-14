@@ -57,7 +57,7 @@ public class miAdaptador extends RecyclerView.Adapter<miAdaptador.ViewHolder> {
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            iconViaje = itemView.findViewById(R.id.imagen);
+            iconViaje = itemView.findViewById(R.id.imagenViaje);
             pais = itemView.findViewById(R.id.paisDestinoViaje);
             ciudad = itemView.findViewById(R.id.ciudadDestinoViaje);
             desplazamiento = itemView.findViewById(R.id.desplazamientoViaje);

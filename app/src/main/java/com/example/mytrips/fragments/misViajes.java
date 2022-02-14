@@ -50,11 +50,14 @@ public class misViajes extends Fragment {
 
     arrayViajes = new ArrayList<>();
     arrayViajes.add(new viaje("ESPAÑA","MÁLAGA","TREN","15/04/2022","25/04/2022","HOTEL"));
+
     arrayViajes.add(new viaje("ESPAÑA","MÁLAGA","TREN","15/04/2022","25/04/2022","HOTEL"));
     arrayViajes.add(new viaje("ESPAÑA","MÁLAGA","TREN","15/04/2022","25/04/2022","HOTEL"));
     arrayViajes.add(new viaje("ESPAÑA","MÁLAGA","TREN","15/04/2022","25/04/2022","HOTEL"));
     arrayViajes.add(new viaje("ESPAÑA","MÁLAGA","TREN","15/04/2022","25/04/2022","HOTEL"));
     arrayViajes.add(new viaje("ESPAÑA","MÁLAGA","TREN","15/04/2022","25/04/2022","HOTEL"));
     arrayViajes.add(new viaje("ESPAÑA","MÁLAGA","TREN","15/04/2022","25/04/2022","HOTEL"));
+
+
     }
 }
