@@ -2,6 +2,7 @@ package com.example.mytrips.recyclerAdapter;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.media.Image;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,15 +15,13 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.mytrips.R;
 import com.example.mytrips.viaje;
 
-import org.w3c.dom.Text;
-
 import java.util.ArrayList;
 
-public class miAdaptador extends RecyclerView.Adapter<miAdaptador.ViewHolder> {
+public class recycler_adapter extends RecyclerView.Adapter<recycler_adapter.ViewHolder> {
     private ArrayList<viaje> arrayViajes;
     private LayoutInflater mInflater;
     private Context context;
-    public miAdaptador(ArrayList<viaje> arrayViajes, Context context) {
+    public recycler_adapter(ArrayList<viaje> arrayViajes, Context context) {
         this.mInflater = LayoutInflater.from(context);
         this.arrayViajes = arrayViajes;
         this.context = context;
@@ -30,13 +29,13 @@ public class miAdaptador extends RecyclerView.Adapter<miAdaptador.ViewHolder> {
 
     @NonNull
     @Override
-    public miAdaptador.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public recycler_adapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = mInflater.inflate(R.layout.list_element_mis_viajes,null);
-        return new miAdaptador.ViewHolder(view);
+        return new recycler_adapter.ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull miAdaptador.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull recycler_adapter.ViewHolder holder, int position) {
         holder.bindData(arrayViajes.get(position));
     }
 
@@ -69,7 +68,7 @@ public class miAdaptador extends RecyclerView.Adapter<miAdaptador.ViewHolder> {
 
         @SuppressLint("ResourceType")
         public void bindData(final viaje itemViaje) {
-        iconViaje = itemView.findViewById(R.drawable.avion_maletas);
+        iconViaje.setImageResource(itemViaje.getImagenViaje());
         pais.setText(itemViaje.getPais());
         ciudad.setText(itemViaje.getCiudad());
         desplazamiento.setText(itemViaje.getDesplazamiento());

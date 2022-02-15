@@ -4,21 +4,20 @@ import android.content.Context;
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
-import android.widget.ListAdapter;
 
 import com.example.mytrips.R;
-import com.example.mytrips.recyclerAdapter.miAdaptador;
+import com.example.mytrips.recyclerAdapter.recycler_adapter;
 import com.example.mytrips.viaje;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class misViajes extends Fragment {
     ArrayList<viaje> arrayViajes;
@@ -33,7 +32,7 @@ public class misViajes extends Fragment {
                              Bundle savedInstanceState) {
         View vista = inflater.inflate(R.layout.fragment_mis_viajes, container, false);
         main();
-        miAdaptador adapter = new miAdaptador(arrayViajes,context);
+        recycler_adapter adapter = new recycler_adapter(arrayViajes,context);
         RecyclerView recycler = vista.findViewById(R.id.recyclerMisViajes);
         recycler.setHasFixedSize(true);
         recycler.setLayoutManager(new LinearLayoutManager(context));
@@ -49,15 +48,14 @@ public class misViajes extends Fragment {
     context = getActivity().getApplicationContext();
 
     arrayViajes = new ArrayList<>();
-    arrayViajes.add(new viaje("ESPAÑA","MÁLAGA","TREN","15/04/2022","25/04/2022","HOTEL"));
-
-    arrayViajes.add(new viaje("ESPAÑA","MÁLAGA","TREN","15/04/2022","25/04/2022","HOTEL"));
-    arrayViajes.add(new viaje("ESPAÑA","MÁLAGA","TREN","15/04/2022","25/04/2022","HOTEL"));
-    arrayViajes.add(new viaje("ESPAÑA","MÁLAGA","TREN","15/04/2022","25/04/2022","HOTEL"));
-    arrayViajes.add(new viaje("ESPAÑA","MÁLAGA","TREN","15/04/2022","25/04/2022","HOTEL"));
-    arrayViajes.add(new viaje("ESPAÑA","MÁLAGA","TREN","15/04/2022","25/04/2022","HOTEL"));
-    arrayViajes.add(new viaje("ESPAÑA","MÁLAGA","TREN","15/04/2022","25/04/2022","HOTEL"));
-
+    arrayViajes.add(new viaje(R.drawable.tenerife_spain,"ESPAÑA","STA CRUZ DE TENERIFE","TREN","15/04/2022","25/04/2022","HOTEL"));
+    arrayViajes.add(new viaje(R.drawable.santorini_grecia,"GRECIA","SANTORINI","AVION","15/04/2022","25/04/2022","HOTEL"));
+    arrayViajes.add(new viaje(R.drawable.berlin,"ALEMANIA","BERLIN","TREN","15/04/2022","25/04/2022","HOTEL"));
+    arrayViajes.add(new viaje(R.drawable.cancun,"MEXICO","CANCUN","TREN","15/04/2022","25/04/2022","HOTEL"));
+    arrayViajes.add(new viaje(R.drawable.estambul,"TURQUIA","ESTAMBUL","TREN","15/04/2022","25/04/2022","HOTEL"));
+    arrayViajes.add(new viaje(R.drawable.tokyo,"JAPON","TOKYO","TREN","15/04/2022","25/04/2022","HOTEL"));
+    arrayViajes.add(new viaje(R.drawable.londres,"REINO UNIDO","LONDRES","TREN","15/04/2022","25/04/2022","HOTEL"));
+    arrayViajes.add(new viaje(R.drawable.paris,"FRANCIA","PARIS","TREN","15/04/2022","25/04/2022","HOTEL"));
 
     }
 }

@@ -8,9 +8,10 @@ public class viaje {
     private String fecha_ida;
     private String fecha_vuelta;
     private String tipo_alojamiento;
-    private int imagenViaje; int imagen;
-    public viaje(String pais, String ciudad, String desplazamiento, String fecha_ida, String fecha_vuelta, String tipo_alojamiento) {
-        //this.imagenViaje= imagen;
+    private int imagenViaje;
+
+    public viaje(int imagenViaje,String pais, String ciudad, String desplazamiento, String fecha_ida, String fecha_vuelta, String tipo_alojamiento) {
+        this.imagenViaje= imagenViaje;
         this.pais = pais;
         this.ciudad = ciudad;
         this.desplazamiento = desplazamiento;
