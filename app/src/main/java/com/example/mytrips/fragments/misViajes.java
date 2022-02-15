@@ -48,14 +48,14 @@ public class misViajes extends Fragment {
     context = getActivity().getApplicationContext();
 
     arrayViajes = new ArrayList<>();
-    arrayViajes.add(new viaje(R.drawable.tenerife_spain,"ESPAÑA","STA CRUZ DE TENERIFE","TREN","15/04/2022","25/04/2022","HOTEL"));
+    arrayViajes.add(new viaje(R.drawable.tenerife_spain,"ESPAÑA","STA CRUZ DE TENERIFE","AVION","15/04/2022","25/04/2022","CAMPING"));
     arrayViajes.add(new viaje(R.drawable.santorini_grecia,"GRECIA","SANTORINI","AVION","15/04/2022","25/04/2022","HOTEL"));
-    arrayViajes.add(new viaje(R.drawable.berlin,"ALEMANIA","BERLIN","TREN","15/04/2022","25/04/2022","HOTEL"));
-    arrayViajes.add(new viaje(R.drawable.cancun,"MEXICO","CANCUN","TREN","15/04/2022","25/04/2022","HOTEL"));
-    arrayViajes.add(new viaje(R.drawable.estambul,"TURQUIA","ESTAMBUL","TREN","15/04/2022","25/04/2022","HOTEL"));
-    arrayViajes.add(new viaje(R.drawable.tokyo,"JAPON","TOKYO","TREN","15/04/2022","25/04/2022","HOTEL"));
-    arrayViajes.add(new viaje(R.drawable.londres,"REINO UNIDO","LONDRES","TREN","15/04/2022","25/04/2022","HOTEL"));
-    arrayViajes.add(new viaje(R.drawable.paris,"FRANCIA","PARIS","TREN","15/04/2022","25/04/2022","HOTEL"));
+    arrayViajes.add(new viaje(R.drawable.berlin,"ALEMANIA","BERLIN","TREN","15/04/2022","25/04/2022","APARTAMENTO"));
+    arrayViajes.add(new viaje(R.drawable.cancun,"MEXICO","CANCUN","AVION","15/04/2022","25/04/2022","HOTEL"));
+    arrayViajes.add(new viaje(R.drawable.estambul,"TURQUIA","ESTAMBUL","AVION","15/04/2022","25/04/2022","HABITACION"));
+    arrayViajes.add(new viaje(R.drawable.tokyo,"JAPON","TOKYO","AVION","15/04/2022","25/04/2022","HOTEL"));
+    arrayViajes.add(new viaje(R.drawable.londres,"REINO UNIDO","LONDRES","BARCO","15/04/2022","25/04/2022","APARTAMENTO"));
+    arrayViajes.add(new viaje(R.drawable.paris,"FRANCIA","PARIS","AUTOBUS","15/04/2022","25/04/2022","APARTAMENTO"));
 
     }
 }
