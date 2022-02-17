@@ -5,7 +5,8 @@
     <item
         android:id="@+id/favoritos"
         android:title="Favoritos"
-        app:showAsAction="never"
+        android:icon="@drawable/ic_corazon"
+        app:showAsAction="ifRoom"
         />
 
     <item
