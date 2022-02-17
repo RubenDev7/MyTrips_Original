@@ -15,7 +15,7 @@
         android:layout_marginTop="40dp"
         android:gravity="center"
         android:textStyle="bold"
-        android:text="¡ Añadir nuevo viaje !"
+        android:text="¡ Añade un nuevo viaje, NOMBRE !"
         android:textSize="26sp" />
 
         <LinearLayout
@@ -39,7 +39,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Seleccionar" />
+                android:text="Seleccionar"
+                app:cornerRadius="30dp" />
 
         </LinearLayout>
 
@@ -47,7 +48,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="30dp"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="20dp"
             android:orientation="horizontal">
 
             <TextView
@@ -65,9 +66,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:hint="España"
-                android:inputType="text"
-                tools:ignore="TouchTargetSizeCheck" />
+                android:hint="España, Andorra..."
+                android:inputType="text"/>
 
         </LinearLayout>
 
@@ -75,7 +75,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="30dp"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="20dp"
             android:orientation="horizontal"
             android:visibility="visible">
 
@@ -95,7 +95,7 @@
                 android:layout_weight="1"
                 android:ems="10"
                 android:gravity="center"
-                android:hint="Cádiz"
+                android:hint="Cádiz, Málaga..."
                 android:inputType="text"
                 tools:ignore="TouchTargetSizeCheck" />
 
@@ -105,7 +105,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="30dp"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="20dp"
             android:orientation="horizontal">
 
             <TextView
@@ -118,12 +118,15 @@
                 android:text="Desplazamiento: "
                 android:textSize="18sp" />
 
-            <Spinner
+            <EditText
                 android:id="@+id/inputDesplazamiento"
                 android:layout_width="0dp"
-                android:layout_height="42dp"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
-                tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+                android:gravity="center"
+                android:hint="Coche, tren.."
+                android:inputType="text"
+                tools:ignore="TouchTargetSizeCheck" />
 
         </LinearLayout>
 
@@ -131,7 +134,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="30dp"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="20dp"
             android:orientation="horizontal"
             android:visibility="visible">
 
@@ -162,7 +165,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="30dp"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="20dp"
             android:orientation="horizontal"
             android:visibility="visible">
 
@@ -192,7 +195,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="30dp"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="20dp"
             android:orientation="horizontal">
 
             <TextView
@@ -202,23 +205,25 @@
                 android:layout_gravity="left|center"
                 android:layout_weight="1"
                 android:textStyle="bold"
-                android:text="Desplazamiento: "
+                android:text="Alojamiento: "
                 android:textSize="18sp" />
 
-            <Spinner
+            <EditText
                 android:id="@+id/inputAlojamiento"
                 android:layout_width="0dp"
-                android:layout_height="42dp"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
-                tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
-
+                android:gravity="center"
+                android:hint="Hotel, apartamento..."
+                android:inputType="text"
+                tools:ignore="TouchTargetSizeCheck" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="30dp"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="20dp"
             android:orientation="horizontal">
 
             <TextView
@@ -245,7 +250,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="30dp"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="40dp"
         android:orientation="horizontal">
 
 
@@ -253,25 +258,19 @@
             android:id="@+id/button2"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:layout_margin="5dp"
-            android:text="Crear viaje" />
+            android:layout_weight="1"
+            android:text="Crear viaje"
+            app:cornerRadius="30dp" />
 
         <Button
             android:id="@+id/button3"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:layout_margin="5dp"
-            android:text="Borrar datos" />
+            android:layout_weight="1"
+            android:text="Borrar datos"
+            app:cornerRadius="30dp" />
     </LinearLayout>
-
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_marginTop="10dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:scaleType="fitXY"
-        android:src="@drawable/panoramica_viaje" />
 
 </LinearLayout>
