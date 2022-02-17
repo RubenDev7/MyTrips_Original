@@ -16,7 +16,7 @@
             android:name=".activitiesToolBar.ajustes"
             android:exported="false" />
         <activity
-            android:name=".activitiesToolBar.perfil"
+            android:name=".activitiesToolBar.favoritos"
             android:exported="false" />
         <activity
             android:name=".splash"

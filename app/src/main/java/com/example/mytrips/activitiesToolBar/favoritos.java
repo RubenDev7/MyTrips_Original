@@ -8,12 +8,12 @@ import android.view.View;
 
 import com.example.mytrips.R;
 
-public class perfil extends AppCompatActivity {
+public class favoritos extends AppCompatActivity {
     Toolbar perfilToolbar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_perfil);
+        setContentView(R.layout.activity_favoritos);
         main();
     }
 

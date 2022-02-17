@@ -17,7 +17,7 @@ import com.example.mytrips.viaje;
 
 import java.util.ArrayList;
 
-public class recycler_adapter extends RecyclerView.Adapter<recycler_adapter.ViewHolder> {
+public class  recycler_adapter extends RecyclerView.Adapter<recycler_adapter.ViewHolder> {
     private ArrayList<viaje> arrayViajes;
     private LayoutInflater mInflater;
     private Context context;

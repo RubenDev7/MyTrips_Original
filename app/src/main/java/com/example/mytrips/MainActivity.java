@@ -13,7 +13,7 @@ import android.widget.Toast;
 
 
 import com.example.mytrips.activitiesToolBar.ajustes;
-import com.example.mytrips.activitiesToolBar.perfil;
+import com.example.mytrips.activitiesToolBar.favoritos;
 import com.example.mytrips.adaptadorTabs.miAdaptador;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
@@ -60,8 +60,8 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
 
-        if (id == R.id.perfil) {
-            Intent i = new Intent(this, perfil.class);
+        if (id == R.id.favoritos) {
+            Intent i = new Intent(this, favoritos.class);
             startActivity(i);
         }
         if (id == R.id.ajustes) {
