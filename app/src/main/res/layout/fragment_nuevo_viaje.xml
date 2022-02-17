@@ -15,7 +15,7 @@
         android:layout_marginTop="40dp"
         android:gravity="center"
         android:textStyle="bold"
-        android:text="¡ Añade un nuevo viaje, NOMBRE !"
+        android:text=" NOMBRE USER"
         android:textSize="26sp" />
 
         <LinearLayout
@@ -35,7 +35,7 @@
                 android:textSize="18sp" />
 
             <Button
-                android:id="@+id/buttonSeleccionarFoto"
+                android:id="@+id/inputFoto"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -236,13 +236,14 @@
                 android:textSize="18sp" />
 
             <Switch
-                android:id="@+id/switchFavoritos"
+                android:id="@+id/switchInputFavoritos"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:fontFamily="sans-serif"
                 android:text=""
                 android:textSize="18sp"
+                android:checked="false"
                 tools:ignore="TouchTargetSizeCheck" />
         </LinearLayout>
 
@@ -255,7 +256,7 @@
 
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/buttonCrearViaje"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
@@ -264,7 +265,7 @@
             app:cornerRadius="30dp" />
 
         <Button
-            android:id="@+id/button3"
+            android:id="@+id/buttonBorrarDatosViaje"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"

@@ -1,67 +1,171 @@
 package com.example.mytrips.fragments;
 
+import android.Manifest;
+import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContract;
+import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.annotation.NonNull;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+import androidx.core.content.PermissionChecker;
 import androidx.fragment.app.Fragment;
 
+import android.provider.MediaStore;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.CompoundButton;
+import android.widget.EditText;
+import android.widget.Switch;
+import android.widget.Toast;
 
 import com.example.mytrips.R;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link nuevoViaje#newInstance} factory method to
- * create an instance of this fragment.
- */
+import java.util.ArrayList;
+
 public class nuevoViaje extends Fragment {
-
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    private static final int CODIGO_ABRIR_GALERIA = 0;
+    Button seleccionarFoto;
+    EditText pais;
+    EditText ciudad;
+    EditText desplazamiento;
+    EditText fechaIda;
+    EditText fechaVuelta;
+    EditText alojamiento;
+    Switch favoritos;
+    Button crearViaje;
+    Button borrarDatos;
+    Boolean swFavoritos = false;
+    ActivityResultLauncher <Intent> activityResultLauncher;
 
     public nuevoViaje() {
         // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment nuevoViaje.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static nuevoViaje newInstance(String param1, String param2) {
-        nuevoViaje fragment = new nuevoViaje();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View vista = inflater.inflate(R.layout.fragment_nuevo_viaje, container, false);
+        seleccionarFoto = vista.findViewById(R.id.inputFoto);
+        pais = vista.findViewById(R.id.inputPais);
+        ciudad = vista.findViewById(R.id.inputCiudad);
+        desplazamiento = vista.findViewById(R.id.inputDesplazamiento);
+        fechaIda = vista.findViewById(R.id.inputFechaIda);
+        fechaVuelta = vista.findViewById(R.id.inputFechaVuelta);
+        alojamiento = vista.findViewById(R.id.inputAlojamiento);
+        favoritos = vista.findViewById(R.id.switchInputFavoritos);
+        crearViaje = vista.findViewById(R.id.buttonCrearViaje);
+        borrarDatos = vista.findViewById(R.id.buttonBorrarDatosViaje);
+        main();
         // Inflate the layout for this fragment
         return vista;
     }
-}
+
+    private void main() {
+        getActivityResult();
+        validarDatos();
+        
+    }
+
+    private void comprobarPermisos() {
+        int check_permisos = ContextCompat.checkSelfPermission(getContext(), Manifest.permission.READ_EXTERNAL_STORAGE);
+
+        if (check_permisos!= PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(getActivity(), new String [] {Manifest.permission.READ_EXTERNAL_STORAGE},CODIGO_ABRIR_GALERIA);
+        } else {
+            abrirGaleria();
+        }
+    }
+
+    private void abrirGaleria() {
+        Intent fotoViaje = new Intent(Intent.ACTION_PICK,MediaStore.Images.Media.INTERNAL_CONTENT_URI);
+        activityResultLauncher.launch(fotoViaje);
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        switch (requestCode) {
+            case CODIGO_ABRIR_GALERIA: {
+                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    abrirGaleria();
+                } else {
+                    Log.e("Error","No se pudo abrir la camara");
+                }
+            }
+        }
+        return;
+    }
+
+    private void getActivityResult() {
+        activityResultLauncher=registerForActivityResult(
+                new ActivityResultContracts.StartActivityForResult(), new ActivityResultCallback<ActivityResult>() {
+                    @Override
+                    public void onActivityResult(ActivityResult result) {
+                        if (result.getResultCode() ==Activity.RESULT_OK) {
+                            Intent intentCamara = result.getData();
+                        } else if (result.getResultCode() == Activity.RESULT_CANCELED) {
+                            Toast.makeText(getContext(),"ACCION CANCELADA", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+    }
+
+    private void permisosGaleria() {
+        seleccionarFoto.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                comprobarPermisos();
+            }
+        });
+    }
+
+
+
+    private void validarDatos() {
+
+        crearViaje.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //Toast.makeText(getContext(),"PRUEBA", Toast.LENGTH_LONG).show();
+                if (    pais.getText().toString().equals("") ||
+                        ciudad.getText().toString().equals("") ||
+                        desplazamiento.getText().toString().equals("") ||
+                        fechaIda.getText().toString().equals("") ||
+                        fechaVuelta.getText().toString().equals("") ||
+                        alojamiento.getText().toString().equals("")
+
+                ) {
+                    Toast.makeText(getContext(),"Introduce todos los datos", Toast.LENGTH_SHORT).show();
+                } else {
+                    favoritos.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                        @Override
+                        public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                            if (favoritos.isChecked()) {
+                                swFavoritos = true;
+                            } else {
+                                swFavoritos=false;
+                            }
+                        }
+                    });
+
+                    if (swFavoritos) {
+                        Toast.makeText(getContext(),"Viaje creado y añadido a favoritos", Toast.LENGTH_LONG).show();
+                        //AÑADIR A BBDD LA VAINA
+                    } else {
+                        Toast.makeText(getContext(),"Viaje creado", Toast.LENGTH_LONG).show();
+                    }
+                }
+            }
+        });
+    }
+    }
