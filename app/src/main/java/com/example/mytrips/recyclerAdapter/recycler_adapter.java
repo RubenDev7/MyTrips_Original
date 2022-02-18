@@ -21,6 +21,7 @@ public class  recycler_adapter extends RecyclerView.Adapter<recycler_adapter.Vie
     private ArrayList<viaje> arrayViajes;
     private LayoutInflater mInflater;
     private Context context;
+
     public recycler_adapter(ArrayList<viaje> arrayViajes, Context context) {
         this.mInflater = LayoutInflater.from(context);
         this.arrayViajes = arrayViajes;

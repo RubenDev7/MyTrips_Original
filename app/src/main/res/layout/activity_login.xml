@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:layout_height="match_parent"
+    android:background="@drawable/smoot_back"
+    tools:context=".login">
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="MyTrips"
+        android:textColor="@color/white"
+        android:textSize="36sp"
+        android:layout_marginTop="60dp"
+        android:gravity="center"
+         />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="303dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:hint="USUARIO"
+        android:textColorHint="@color/white"
+        app:helperText="Introduce tu nombre de usuario"
+        app:helperTextTextAppearance="@style/TextAppearance.AppCompat.Medium"
+        app:helperTextTextColor="@color/white"
+        app:hintTextColor="@color/white">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/inputUser"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/transparent"
+            android:textColor="@color/white"
+            tools:ignore="SpeakableTextPresentCheck"></com.google.android.material.textfield.TextInputEditText>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="303dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:background="@android:color/transparent"
+        android:hint="CONTRASEÑA"
+        android:textColorHint="@color/white"
+        app:endIconMode="password_toggle"
+        app:endIconTint="@color/white"
+        app:helperText="Introduce tu contraseña"
+        app:helperTextTextAppearance="@style/TextAppearance.AppCompat.Medium"
+        app:helperTextTextColor="@color/white"
+        app:hintTextColor="@color/white">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/inputPassword"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/transparent"
+            android:inputType="textPassword"
+            android:textColor="@color/white"
+            tools:ignore="SpeakableTextPresentCheck"></com.google.android.material.textfield.TextInputEditText>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/buttonInicio"
+        android:layout_marginTop="50dp"
+        android:layout_marginHorizontal="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="INICIAR SESIÓN" />
+
+
+</LinearLayout>

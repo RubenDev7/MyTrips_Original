@@ -178,6 +178,7 @@ public class nuevoViaje extends Fragment {
                         Toast.makeText(getContext(),"Viaje creado", Toast.LENGTH_LONG).show();
                         limpiarInputs();
                     }
+                    db.close();
                 }
             }
             private void limpiarInputs() {
@@ -190,11 +191,5 @@ public class nuevoViaje extends Fragment {
             }
 
         });
-    }
-
-    @Override
-    public void onPause() {
-        super.onPause();
-        db.close();
     }
 }

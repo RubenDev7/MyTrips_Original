@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.viewpager2.widget.ViewPager2;
 
+import android.content.Context;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -37,14 +38,14 @@ public class MainActivity extends AppCompatActivity {
     private void main() {
         controls();
         initTabs();
-        startBBDD();
+        //startBBDD();
     }
-
+        /*
     private void startBBDD() {
         adminsqlite bbdd = new adminsqlite(this,"DBViajesFAVS",null,1);
         db = bbdd.getWritableDatabase();
     }
-
+    */
     private void controls() {
         myTB = findViewById(R.id.myToolbar);
         setSupportActionBar(myTB);
@@ -79,7 +80,10 @@ public class MainActivity extends AppCompatActivity {
             Intent i = new Intent(this, ajustes.class);
             startActivity(i);        }
         if (id == R.id.cerrarSesion) {
-            Toast.makeText(getApplicationContext(),"PRUEBA CIERRE SESION TOOLBAR", Toast.LENGTH_LONG).show();
+            getSharedPreferences(getString(R.string.preferencia), Context.MODE_PRIVATE).edit().clear().commit();
+            Intent i = new Intent(MainActivity.this,splash.class);
+            startActivity(i);
+            finish();
         }
         return super.onOptionsItemSelected(item);
     }
