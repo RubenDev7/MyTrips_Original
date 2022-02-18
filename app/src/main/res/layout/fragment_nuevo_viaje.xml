@@ -15,8 +15,8 @@
         android:layout_marginTop="40dp"
         android:gravity="center"
         android:textStyle="bold"
-        android:text=" NOMBRE USER"
-        android:textSize="26sp" />
+        android:text="CREA TU NUEVO VIAJE AQUÍ :)"
+        android:textSize="24sp" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -69,7 +69,6 @@
                 android:hint="España, Andorra..."
                 android:inputType="text"
                 tools:ignore="TouchTargetSizeCheck" />
-
         </LinearLayout>
 
         <LinearLayout

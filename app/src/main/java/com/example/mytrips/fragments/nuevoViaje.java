@@ -159,12 +159,23 @@ public class nuevoViaje extends Fragment {
 
                     if (swFavoritos) {
                         Toast.makeText(getContext(),"Viaje creado y añadido a favoritos", Toast.LENGTH_LONG).show();
+                        limpiarInputs();
                         //AÑADIR A BBDD LA VAINA
                     } else {
                         Toast.makeText(getContext(),"Viaje creado", Toast.LENGTH_LONG).show();
+                        limpiarInputs();
                     }
                 }
             }
+            private void limpiarInputs() {
+                pais.setText("");
+                ciudad.setText("");
+                desplazamiento.setText("");
+                fechaIda.setText("");
+                fechaVuelta.setText("");
+                alojamiento.setText("");
+            }
+
         });
     }
     }
