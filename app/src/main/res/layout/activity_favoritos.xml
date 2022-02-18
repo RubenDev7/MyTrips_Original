@@ -23,6 +23,7 @@
         app:titleTextColor="@color/white" />
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerFavoritos"
         android:layout_width="match_parent"
         android:layout_height="676dp"
         app:layout_constraintEnd_toEndOf="parent"

@@ -131,8 +131,6 @@ public class nuevoViaje extends Fragment {
         });
     }
 
-
-
     private void validarDatos() {
 
         crearViaje.setOnClickListener(new View.OnClickListener() {
