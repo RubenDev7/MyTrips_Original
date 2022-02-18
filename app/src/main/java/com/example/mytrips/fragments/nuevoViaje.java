@@ -4,6 +4,7 @@ import android.Manifest;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -28,6 +29,7 @@ import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.Switch;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.mytrips.R;
@@ -37,6 +39,7 @@ import java.util.ArrayList;
 
 public class nuevoViaje extends Fragment {
     private static final int CODIGO_ABRIR_GALERIA = 0;
+    TextView usuario;
     Button seleccionarFoto;
     EditText pais;
     EditText ciudad;
@@ -50,6 +53,7 @@ public class nuevoViaje extends Fragment {
     Boolean swFavoritos = true;
     ActivityResultLauncher <Intent> activityResultLauncher;
     private SQLiteDatabase db;
+    SharedPreferences prefs;
 
     public nuevoViaje() {
         // Required empty public constructor
@@ -59,6 +63,7 @@ public class nuevoViaje extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View vista = inflater.inflate(R.layout.fragment_nuevo_viaje, container, false);
+        usuario = vista.findViewById(R.id.tvNombreUser);
         seleccionarFoto = vista.findViewById(R.id.inputFoto);
         pais = vista.findViewById(R.id.inputPais);
         ciudad = vista.findViewById(R.id.inputCiudad);
@@ -69,6 +74,7 @@ public class nuevoViaje extends Fragment {
         favoritos = vista.findViewById(R.id.switchInputFavoritos);
         crearViaje = vista.findViewById(R.id.buttonCrearViaje);
         borrarDatos = vista.findViewById(R.id.buttonBorrarDatosViaje);
+
         main();
         // Inflate the layout for this fragment
         return vista;
@@ -78,7 +84,13 @@ public class nuevoViaje extends Fragment {
         getActivityResult();
         validarDatos();
         abrirGaleria();
+        nombreUser();
         
+    }
+
+    private void nombreUser() {
+        String n = getActivity().getSharedPreferences(getString(R.string.preferencia),Context.MODE_PRIVATE).getString("user","");
+        usuario.setText(n.toUpperCase() + " ✈️");
     }
 
     private void comprobarPermisos() {

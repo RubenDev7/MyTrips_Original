@@ -7,6 +7,7 @@ import androidx.viewpager2.widget.ViewPager2;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.Menu;
@@ -27,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
     public ViewPager2 myVP2;
     public miAdaptador adapter;
     private SQLiteDatabase db;
+    SharedPreferences prefs;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,15 +42,19 @@ public class MainActivity extends AppCompatActivity {
         initTabs();
         //startBBDD();
     }
-        /*
-    private void startBBDD() {
-        adminsqlite bbdd = new adminsqlite(this,"DBViajesFAVS",null,1);
-        db = bbdd.getWritableDatabase();
-    }
-    */
+
+
+
+    /*
+private void startBBDD() {
+    adminsqlite bbdd = new adminsqlite(this,"DBViajesFAVS",null,1);
+    db = bbdd.getWritableDatabase();
+}
+*/
     private void controls() {
         myTB = findViewById(R.id.myToolbar);
         setSupportActionBar(myTB);
+        //myTB.setTitle(getSharedPreferences(getString(R.string.preferencia),Context.MODE_PRIVATE).getString("user","MyTrips"));
         myTL = findViewById(R.id.myTabs);
         myVP2 = findViewById(R.id.myViewPager2);
         //Con esto se cambia el icono predeterminado de la ToolBar

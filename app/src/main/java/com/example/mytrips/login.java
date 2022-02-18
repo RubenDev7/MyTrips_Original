@@ -46,8 +46,10 @@ public class login extends AppCompatActivity {
                         String u = user.getText().toString();
                         String p = pass.getText().toString();
 
-                        if (u.toUpperCase().equals("RUBEN") && p.toUpperCase().equals("RUBEN")){
-                            prefs.edit().putBoolean("logueado",true).commit();
+                        if (u.toUpperCase().equals("RUBEN") && p.toUpperCase().equals("RUBEN") ||
+                                u.toUpperCase().equals("SUS") && p.toUpperCase().equals("SUS") ||
+                                u.toUpperCase().equals("JULIO") && p.toUpperCase().equals("JULIO")) {
+                            prefs.edit().putBoolean("logueado",true).putString("user",u).commit();
                             Intent i = new Intent(login.this,MainActivity.class);
                             startActivity(i);
                     }
