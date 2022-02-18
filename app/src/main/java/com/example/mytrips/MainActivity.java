@@ -6,6 +6,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.viewpager2.widget.ViewPager2;
 
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -15,6 +16,7 @@ import android.widget.Toast;
 import com.example.mytrips.activitiesToolBar.ajustes;
 import com.example.mytrips.activitiesToolBar.favoritos;
 import com.example.mytrips.adaptadorTabs.miAdaptador;
+import com.example.mytrips.sqlite.adminsqlite;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
 
@@ -23,6 +25,8 @@ public class MainActivity extends AppCompatActivity {
     public TabLayout myTL;
     public ViewPager2 myVP2;
     public miAdaptador adapter;
+    private SQLiteDatabase db;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,7 +37,14 @@ public class MainActivity extends AppCompatActivity {
     private void main() {
         controls();
         initTabs();
+        startBBDD();
     }
+
+    private void startBBDD() {
+        adminsqlite bbdd = new adminsqlite(this,"DBViajesFAVS",null,1);
+        db = bbdd.getWritableDatabase();
+    }
+
     private void controls() {
         myTB = findViewById(R.id.myToolbar);
         setSupportActionBar(myTB);

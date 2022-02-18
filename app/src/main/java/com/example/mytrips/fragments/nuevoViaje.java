@@ -5,6 +5,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 
 import androidx.activity.result.ActivityResult;
@@ -30,6 +31,7 @@ import android.widget.Switch;
 import android.widget.Toast;
 
 import com.example.mytrips.R;
+import com.example.mytrips.sqlite.adminsqlite;
 
 import java.util.ArrayList;
 
@@ -45,8 +47,9 @@ public class nuevoViaje extends Fragment {
     Switch favoritos;
     Button crearViaje;
     Button borrarDatos;
-    Boolean swFavoritos = false;
+    Boolean swFavoritos = true;
     ActivityResultLauncher <Intent> activityResultLauncher;
+    private SQLiteDatabase db;
 
     public nuevoViaje() {
         // Required empty public constructor
@@ -152,15 +155,27 @@ public class nuevoViaje extends Fragment {
                             if (favoritos.isChecked()) {
                                 swFavoritos = true;
                             } else {
-                                swFavoritos=false;
+                                swFavoritos = false;
                             }
                         }
                     });
 
                     if (swFavoritos) {
-                        Toast.makeText(getContext(),"Viaje creado y añadido a favoritos", Toast.LENGTH_LONG).show();
+                        adminsqlite bbdd = new adminsqlite(getContext(),"DBViajesFAVS",null,1);
+                        db = bbdd.getWritableDatabase();
+                        if (db!=null) {
+                         String p = pais.getText().toString();
+                         String c = ciudad.getText().toString();
+                         String d = desplazamiento.getText().toString();
+                         String fi = fechaIda.getText().toString();
+                         String fv = fechaVuelta.getText().toString();
+                         String a = alojamiento.getText().toString();
+                         String sqlInsert;
+                         sqlInsert = "INSERT INTO viajes_favoritos values ('"+p+"','"+c+"','"+d+"','"+fi+"','"+fv+"','"+a+"');";
+                         db.execSQL(sqlInsert);
+                        }
+                        Toast.makeText(getContext(),"Viaje creado en favoritos ❤  ", Toast.LENGTH_LONG).show();
                         limpiarInputs();
-                        //AÑADIR A BBDD LA VAINA
                     } else {
                         Toast.makeText(getContext(),"Viaje creado", Toast.LENGTH_LONG).show();
                         limpiarInputs();
@@ -178,4 +193,10 @@ public class nuevoViaje extends Fragment {
 
         });
     }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        db.close();
     }
+}
