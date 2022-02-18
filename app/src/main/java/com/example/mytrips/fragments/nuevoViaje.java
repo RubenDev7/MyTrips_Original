@@ -74,6 +74,7 @@ public class nuevoViaje extends Fragment {
     private void main() {
         getActivityResult();
         validarDatos();
+        abrirGaleria();
         
     }
 
@@ -87,10 +88,6 @@ public class nuevoViaje extends Fragment {
         }
     }
 
-    private void abrirGaleria() {
-        Intent fotoViaje = new Intent(Intent.ACTION_PICK,MediaStore.Images.Media.INTERNAL_CONTENT_URI);
-        activityResultLauncher.launch(fotoViaje);
-    }
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
@@ -120,10 +117,12 @@ public class nuevoViaje extends Fragment {
                 });
     }
 
-    private void permisosGaleria() {
+    private void abrirGaleria () {
         seleccionarFoto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Intent fotoViaje = new Intent(Intent.ACTION_PICK,MediaStore.Images.Media.INTERNAL_CONTENT_URI);
+                activityResultLauncher.launch(fotoViaje);
                 comprobarPermisos();
             }
         });
