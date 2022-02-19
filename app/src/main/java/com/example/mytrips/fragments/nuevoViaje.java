@@ -50,7 +50,7 @@ public class nuevoViaje extends Fragment {
     Switch favoritos;
     Button crearViaje;
     Button borrarDatos;
-    Boolean swFavoritos = true;
+    boolean swFavoritos;
     ActivityResultLauncher <Intent> activityResultLauncher;
     private SQLiteDatabase db;
     SharedPreferences prefs;
