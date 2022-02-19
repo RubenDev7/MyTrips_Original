@@ -12,8 +12,8 @@ import androidx.annotation.RequiresApi;
 
 public class adminsqlite extends SQLiteOpenHelper {
     //SENTENCIA SQL DE CREACION DE TABLA
-    private String sqlCreate = "create table viajes_favoritos(pais text,ciudad text,desplazamiento text," +
-            "fecha_ida text,fecha_vuelta text, alojamiento text)";
+    private String sqlCreate = "create table viajes(pais text,ciudad text,desplazamiento text," +
+            "fecha_ida text,fecha_vuelta text, alojamiento text,favoritos text)";
 
     public adminsqlite(@Nullable Context context, @Nullable String name, @Nullable SQLiteDatabase.CursorFactory factory, int version) {
         super(context, name, factory, version);
@@ -35,7 +35,7 @@ public class adminsqlite extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int i, int i1) {
-        db.execSQL("DROP TABLE IF EXISTS viajes_favoritos");
+        db.execSQL("DROP TABLE IF EXISTS viajes");
         db.execSQL(sqlCreate);
     }
 }

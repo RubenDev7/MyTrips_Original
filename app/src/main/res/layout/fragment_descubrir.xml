@@ -12,7 +12,7 @@
         android:id="@+id/tvCommingSoon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="COMMING SOON"
+        android:text="COMING SOON"
         android:textColor="@color/white"
         android:textSize="35sp"
         app:layout_constraintBottom_toBottomOf="parent"

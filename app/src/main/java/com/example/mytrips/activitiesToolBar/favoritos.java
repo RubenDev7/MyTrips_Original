@@ -46,9 +46,9 @@ public class favoritos extends AppCompatActivity {
     }
 
     private void consultarBBDD() {
-        adminsqlite bbdd = new adminsqlite(getApplicationContext(),"DBViajesFAVS",null,1);
+        adminsqlite bbdd = new adminsqlite(getApplicationContext(),"DBViajes",null,1);
         db = bbdd.getReadableDatabase();
-        Cursor fila = db.rawQuery("select * from viajes_favoritos",null);
+        Cursor fila = db.rawQuery("select * from viajes where favoritos = 'si'",null);
         while (fila.moveToNext()) {
             arrayViajesFavoritos.add(new viaje(R.drawable.heart,fila.getString(0),
                     fila.getString(1),
@@ -58,7 +58,7 @@ public class favoritos extends AppCompatActivity {
                     fila.getString(5)));
         }
         if(arrayViajesFavoritos.isEmpty()){
-            Toast.makeText(getApplicationContext(),"No tinenes favoritos",Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(),"Aún no tienes favoritos \uD83D\uDE14",Toast.LENGTH_SHORT).show();
         }
         db.close();
     }

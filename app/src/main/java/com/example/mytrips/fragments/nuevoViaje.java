@@ -54,7 +54,7 @@ public class nuevoViaje extends Fragment {
     ActivityResultLauncher <Intent> activityResultLauncher;
     private SQLiteDatabase db;
     SharedPreferences prefs;
-
+    String favorito;
     public nuevoViaje() {
         // Required empty public constructor
     }
@@ -164,32 +164,48 @@ public class nuevoViaje extends Fragment {
                         public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
                             if (favoritos.isChecked()) {
                                 swFavoritos = true;
+                                favorito = "si";
                             } else {
                                 swFavoritos = false;
+                                favorito = "no";
                             }
                         }
                     });
 
                     if (swFavoritos) {
-                        adminsqlite bbdd = new adminsqlite(getContext(),"DBViajesFAVS",null,1);
+                        adminsqlite bbdd = new adminsqlite(getContext(), "DBViajes", null, 1);
+                        db = bbdd.getWritableDatabase();
+                        if (db != null) {
+                            String p = pais.getText().toString();
+                            String c = ciudad.getText().toString();
+                            String d = desplazamiento.getText().toString();
+                            String fi = fechaIda.getText().toString();
+                            String fv = fechaVuelta.getText().toString();
+                            String a = alojamiento.getText().toString();
+                            String sqlInsert;
+                            sqlInsert = "INSERT INTO viajes values ('" + p + "','" + c + "','" + d + "','" + fi + "','" + fv + "','" + a + "','" + favorito + "');";
+                            Toast.makeText(getContext(), "Viaje creado en favoritos ❤  ", Toast.LENGTH_LONG).show();
+                            db.execSQL(sqlInsert);
+                            limpiarInputs();
+                        }
+                    }
+                    if (!swFavoritos) {
+                        adminsqlite bbdd = new adminsqlite(getContext(),"DBViajes",null,1);
                         db = bbdd.getWritableDatabase();
                         if (db!=null) {
-                         String p = pais.getText().toString();
-                         String c = ciudad.getText().toString();
-                         String d = desplazamiento.getText().toString();
-                         String fi = fechaIda.getText().toString();
-                         String fv = fechaVuelta.getText().toString();
-                         String a = alojamiento.getText().toString();
-                         String sqlInsert;
-                         sqlInsert = "INSERT INTO viajes_favoritos values ('"+p+"','"+c+"','"+d+"','"+fi+"','"+fv+"','"+a+"');";
-                         db.execSQL(sqlInsert);
-                        }
-                        Toast.makeText(getContext(),"Viaje creado en favoritos ❤  ", Toast.LENGTH_LONG).show();
-                        limpiarInputs();
-                    } else {
-                        Toast.makeText(getContext(),"Viaje creado", Toast.LENGTH_LONG).show();
+                        String p = pais.getText().toString();
+                        String c = ciudad.getText().toString();
+                        String d = desplazamiento.getText().toString();
+                        String fi = fechaIda.getText().toString();
+                        String fv = fechaVuelta.getText().toString();
+                        String a = alojamiento.getText().toString();
+                        String sqlInsert;
+                        sqlInsert = "INSERT INTO viajes values ('" + p + "','" + c + "','" + d + "','" + fi + "','" + fv + "','" + a + "','" + favorito + "');";
+                        Toast.makeText(getContext(), "Viaje creado", Toast.LENGTH_LONG).show();
+                        db.execSQL(sqlInsert);
                         limpiarInputs();
                     }
+                }
                     db.close();
                 }
             }
