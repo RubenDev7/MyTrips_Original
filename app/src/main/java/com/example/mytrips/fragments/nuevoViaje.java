@@ -47,10 +47,11 @@ public class nuevoViaje extends Fragment {
     EditText fechaIda;
     EditText fechaVuelta;
     EditText alojamiento;
-    Switch favoritos;
+    Switch swFavoritos;
+    boolean bFavoritos;
     Button crearViaje;
     Button borrarDatos;
-    boolean swFavoritos;
+
     ActivityResultLauncher <Intent> activityResultLauncher;
     private SQLiteDatabase db;
     SharedPreferences prefs;
@@ -71,7 +72,7 @@ public class nuevoViaje extends Fragment {
         fechaIda = vista.findViewById(R.id.inputFechaIda);
         fechaVuelta = vista.findViewById(R.id.inputFechaVuelta);
         alojamiento = vista.findViewById(R.id.inputAlojamiento);
-        favoritos = vista.findViewById(R.id.switchInputFavoritos);
+        swFavoritos = vista.findViewById(R.id.switchInputFavoritos);
         crearViaje = vista.findViewById(R.id.buttonCrearViaje);
         borrarDatos = vista.findViewById(R.id.buttonBorrarDatosViaje);
 
@@ -159,20 +160,20 @@ public class nuevoViaje extends Fragment {
                 ) {
                     Toast.makeText(getContext(),"Introduce todos los datos", Toast.LENGTH_SHORT).show();
                 } else {
-                    favoritos.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                    swFavoritos.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                         @Override
                         public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                            if (favoritos.isChecked()) {
-                                swFavoritos = true;
+                            if (swFavoritos.isChecked()) {
+                                bFavoritos = true;
                                 favorito = "si";
                             } else {
-                                swFavoritos = false;
+                                bFavoritos = false;
                                 favorito = "no";
                             }
                         }
                     });
 
-                    if (swFavoritos) {
+                    if (bFavoritos) {
                         adminsqlite bbdd = new adminsqlite(getContext(), "DBViajes", null, 1);
                         db = bbdd.getWritableDatabase();
                         if (db != null) {
@@ -189,7 +190,7 @@ public class nuevoViaje extends Fragment {
                             limpiarInputs();
                         }
                     }
-                    if (!swFavoritos) {
+                    else {
                         adminsqlite bbdd = new adminsqlite(getContext(),"DBViajes",null,1);
                         db = bbdd.getWritableDatabase();
                         if (db!=null) {
