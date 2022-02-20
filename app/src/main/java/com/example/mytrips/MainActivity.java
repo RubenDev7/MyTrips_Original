@@ -43,8 +43,6 @@ public class MainActivity extends AppCompatActivity {
         //startBBDD();
     }
 
-
-
     /*
 private void startBBDD() {
     adminsqlite bbdd = new adminsqlite(this,"DBViajesFAVS",null,1);
@@ -57,6 +55,7 @@ private void startBBDD() {
         //myTB.setTitle(getSharedPreferences(getString(R.string.preferencia),Context.MODE_PRIVATE).getString("user","MyTrips"));
         myTL = findViewById(R.id.myTabs);
         myVP2 = findViewById(R.id.myViewPager2);
+
         //Con esto se cambia el icono predeterminado de la ToolBar
         myTB.setOverflowIcon(getDrawable(R.drawable.ic_baseline_more_vert_24));
     }
@@ -84,7 +83,8 @@ private void startBBDD() {
         }
         if (id == R.id.ajustes) {
             Intent i = new Intent(this, ajustes.class);
-            startActivity(i);        }
+            startActivity(i);
+        }
         if (id == R.id.cerrarSesion) {
             getSharedPreferences(getString(R.string.preferencia), Context.MODE_PRIVATE).edit().clear().commit();
             Intent i = new Intent(MainActivity.this,splash.class);
