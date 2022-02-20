@@ -83,10 +83,24 @@ public class nuevoViaje extends Fragment {
 
     private void main() {
         getActivityResult();
+        getSwitch();
         validarDatos();
         abrirGaleria();
         nombreUser();
         
+    }
+
+    private void getSwitch() {
+            swFavoritos.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                    if (swFavoritos.isChecked()) {
+                        favorito = "si";
+                    } else {
+                        favorito = "no";
+                    }
+                }
+            });
     }
 
     private void nombreUser() {
@@ -160,20 +174,8 @@ public class nuevoViaje extends Fragment {
                 ) {
                     Toast.makeText(getContext(),"Introduce todos los datos", Toast.LENGTH_SHORT).show();
                 } else {
-                    swFavoritos.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-                        @Override
-                        public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                            if (swFavoritos.isChecked()) {
-                                bFavoritos = true;
-                                favorito = "si";
-                            } else {
-                                bFavoritos = false;
-                                favorito = "no";
-                            }
-                        }
-                    });
 
-                    if (bFavoritos) {
+                    if (favorito.equals("si")) {
                         adminsqlite bbdd = new adminsqlite(getContext(), "DBViajes", null, 1);
                         db = bbdd.getWritableDatabase();
                         if (db != null) {
@@ -189,24 +191,23 @@ public class nuevoViaje extends Fragment {
                             db.execSQL(sqlInsert);
                             limpiarInputs();
                         }
-                    }
-                    else {
-                        adminsqlite bbdd = new adminsqlite(getContext(),"DBViajes",null,1);
+                    } else if (favorito.equals("no")) {
+                        adminsqlite bbdd = new adminsqlite(getContext(), "DBViajes", null, 1);
                         db = bbdd.getWritableDatabase();
-                        if (db!=null) {
-                        String p = pais.getText().toString();
-                        String c = ciudad.getText().toString();
-                        String d = desplazamiento.getText().toString();
-                        String fi = fechaIda.getText().toString();
-                        String fv = fechaVuelta.getText().toString();
-                        String a = alojamiento.getText().toString();
-                        String sqlInsert;
-                        sqlInsert = "INSERT INTO viajes values ('" + p + "','" + c + "','" + d + "','" + fi + "','" + fv + "','" + a + "','" + favorito + "');";
-                        Toast.makeText(getContext(), "Viaje creado", Toast.LENGTH_LONG).show();
-                        db.execSQL(sqlInsert);
-                        limpiarInputs();
+                        if (db != null) {
+                            String p = pais.getText().toString();
+                            String c = ciudad.getText().toString();
+                            String d = desplazamiento.getText().toString();
+                            String fi = fechaIda.getText().toString();
+                            String fv = fechaVuelta.getText().toString();
+                            String a = alojamiento.getText().toString();
+                            String sqlInsert;
+                            sqlInsert = "INSERT INTO viajes values ('" + p + "','" + c + "','" + d + "','" + fi + "','" + fv + "','" + a + "','" + favorito + "');";
+                            Toast.makeText(getContext(), "Viaje creado", Toast.LENGTH_LONG).show();
+                            db.execSQL(sqlInsert);
+                            limpiarInputs();
+                        }
                     }
-                }
                     db.close();
                 }
             }
@@ -217,6 +218,7 @@ public class nuevoViaje extends Fragment {
                 fechaIda.setText("");
                 fechaVuelta.setText("");
                 alojamiento.setText("");
+                swFavoritos.setChecked(true);
             }
 
         });

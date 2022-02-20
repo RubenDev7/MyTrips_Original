@@ -36,8 +36,9 @@ public class misViajes extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View vista = inflater.inflate(R.layout.fragment_mis_viajes, container, false);
-        main();
 
+        main();
+        consultarBBDD();
         recycler_adapter adapter = new recycler_adapter(arrayViajes,context);
         recycler = vista.findViewById(R.id.recyclerMisViajes);
         recycler.setHasFixedSize(true);
