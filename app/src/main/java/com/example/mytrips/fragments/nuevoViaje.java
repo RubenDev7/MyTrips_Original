@@ -55,7 +55,7 @@ public class nuevoViaje extends Fragment {
     ActivityResultLauncher <Intent> activityResultLauncher;
     private SQLiteDatabase db;
     SharedPreferences prefs;
-    String favorito;
+    String favorito = "si";
     public nuevoViaje() {
         // Required empty public constructor
     }
@@ -218,7 +218,6 @@ public class nuevoViaje extends Fragment {
                 fechaIda.setText("");
                 fechaVuelta.setText("");
                 alojamiento.setText("");
-                swFavoritos.setChecked(true);
             }
 
         });

@@ -43,8 +43,8 @@ public class login extends AppCompatActivity {
                 if (user.getText().toString().equals("") || pass.getText().toString().equals("")) {
                     Toast.makeText(getApplicationContext(),"INTRODUCE USUARIO Y CONTRASEÑA", Toast.LENGTH_LONG).show();
                 } else {
-                        String u = user.getText().toString();
-                        String p = pass.getText().toString();
+                        String u = user.getText().toString().trim();
+                        String p = pass.getText().toString().trim();
 
                         if (u.toUpperCase().equals("RUBEN") && p.toUpperCase().equals("RUBEN") ||
                                 u.toUpperCase().equals("SUS") && p.toUpperCase().equals("SUS") ||
